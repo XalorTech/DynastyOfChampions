@@ -1,0 +1,64 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dotnet/docfx/main/schemas/docfx.schema.json",
+
+  "metadata": [
+    {
+      "src": [
+        {
+          "cwd": "../src/foundations",
+          "files": [ "**/*.csproj" ]
+        },
+        {
+          "cwd": "../src/features",
+          "files": [ "**/*.csproj" ]
+        },
+        {
+          "cwd": "../src/applications",
+          "files": [ "**/*.csproj" ]
+        }
+      ],
+      "dest": "api/csharp"
+    },
+    {
+      "src": [
+        {
+          "cwd": "api/typescript",
+          "files": [ "**/*.yml" ]
+        }
+      ],
+      "dest": "api/typescript"
+    }
+  ],
+
+  "build": {
+    "content": [
+      {
+        "files": [
+          "index.md",
+          "articles/**.md",
+          "architecture/**.md",
+          "api/**.yml"
+        ],
+        "exclude": [
+          "_site/**"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [ "images/**" ]
+      }
+    ],
+    "output": "_site",
+    "template": [
+      "default",
+      "modern"
+    ],
+    "globalMetadata": {
+      "_appName": "DynastyOfChampions",
+      "_appTitle": "DynastyOfChampions",
+      "_enableSearch": true,
+      "pdf": true
+    }
+  }
+}
