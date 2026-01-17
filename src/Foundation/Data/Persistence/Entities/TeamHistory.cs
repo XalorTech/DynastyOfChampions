@@ -4,7 +4,7 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Entities
 {
 	/// <summary>
 	/// Represents a historical snapshot of a team's time-variant attributes,
-	/// such as name, abbreviation, and geographic location.
+	/// including name, abbreviation, and structured geographic location.
 	/// </summary>
 	public class TeamHistory
 	{
@@ -26,9 +26,29 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Entities
 		public string Abbreviation { get; set; } = null!;
 
 		/// <summary>
-		/// The geographic location or city associated with the team during this period.
+		/// The city associated with the team during this period.
 		/// </summary>
-		public string Location { get; set; } = null!;
+		public string? City { get; set; }
+
+		/// <summary>
+		/// The region, state, or province associated with the team during this period.
+		/// </summary>
+		public string? Region { get; set; }
+
+		/// <summary>
+		/// The country associated with the team during this period.
+		/// </summary>
+		public string? Country { get; set; }
+
+		/// <summary>
+		/// A display-friendly location string (e.g., "Dallas", "Manchester").
+		/// </summary>
+		public string? DisplayLocation { get; set; }
+
+		/// <summary>
+		/// A short location code used for scoreboards or abbreviations (e.g., "DAL", "MUN").
+		/// </summary>
+		public string? ShortLocation { get; set; }
 
 		/// <summary>
 		/// The date on which this historical record became effective.
@@ -54,7 +74,7 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Entities
 		#region Navigation Properties
 
 		/// <summary>
-		/// The team associated with this historical record.
+		/// Navigation to the team associated with this historical record.
 		/// </summary>
 		public Team Team { get; set; } = null!;
 

@@ -3,8 +3,8 @@ using System;
 namespace DynastyOfChampions.Foundation.Data.Persistence.Entities
 {
 	/// <summary>
-	/// Represents a historical snapshot of a player's time-variant attributes,
-	/// such as jersey number, position, or name changes.
+	/// Represents a historical snapshot of a player's time-variant identity attributes,
+	/// including names, nickname, and suffix during a specific period.
 	/// </summary>
 	public class PlayerHistory
 	{
@@ -16,24 +16,24 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Entities
 		public Guid Id { get; set; }
 
 		/// <summary>
-		/// The player's first name during this period.
+		/// The player's given names during this period (may include multiple names).
 		/// </summary>
-		public string FirstName { get; set; } = null!;
+		public string GivenNames { get; set; } = null!;
 
 		/// <summary>
-		/// The player's last name during this period.
+		/// The player's surname during this period.
 		/// </summary>
-		public string LastName { get; set; } = null!;
+		public string Surname { get; set; } = null!;
 
 		/// <summary>
-		/// The player's primary position during this period.
+		/// Optional suffix associated with the player's name (e.g., "Jr.", "III").
 		/// </summary>
-		public string? Position { get; set; }
+		public string? Suffix { get; set; }
 
 		/// <summary>
-		/// The jersey number worn by the player during this period.
+		/// Optional nickname used during this period (e.g., "Hollywood", "Megatron").
 		/// </summary>
-		public int? JerseyNumber { get; set; }
+		public string? Nickname { get; set; }
 
 		/// <summary>
 		/// The date on which this historical record became effective.
@@ -59,7 +59,7 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Entities
 		#region Navigation Properties
 
 		/// <summary>
-		/// The player associated with this historical record.
+		/// Navigation to the player associated with this historical record.
 		/// </summary>
 		public Player Player { get; set; } = null!;
 
