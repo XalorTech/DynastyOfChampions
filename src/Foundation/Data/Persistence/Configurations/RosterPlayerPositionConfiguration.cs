@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 namespace DynastyOfChampions.Foundation.Data.Persistence.Configurations
 {
 	/// <summary>
-	/// Configures the RosterEntryPosition entity for EF Core.
+	/// Configures the RosterPlayerPosition entity for EF Core.
 	/// </summary>
-	public class RosterEntryPositionConfiguration : IEntityTypeConfiguration<RosterEntryPosition>
+	public class RosterPlayerPositionConfiguration : IEntityTypeConfiguration<RosterPlayerPosition>
 	{
-		public void Configure(EntityTypeBuilder<RosterEntryPosition> entity)
+		public void Configure(EntityTypeBuilder<RosterPlayerPosition> entity)
 		{
 			#region PrimaryKey
 
@@ -22,11 +22,11 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Configurations
 
 			#region ForeignKeys
 
-			// RosterEntryPosition -> RosterEntry
-			entity.Property(e => e.RosterEntryId)
+			// RosterPlayerPosition -> RosterPlayer
+			entity.Property(e => e.RosterPlayerId)
 				.IsRequired();
 
-			// RosterEntryPosition -> Position
+			// RosterPlayerPosition -> Position
 			entity.Property(e => e.PositionId)
 				.IsRequired();
 
@@ -34,14 +34,14 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Configurations
 
 			#region Relationships
 
-			// RosterEntryPosition -> RosterEntry
-			entity.HasOne(e => e.RosterEntry)
-				.WithMany(re => re.Positions)
-				.HasForeignKey(e => e.RosterEntryId);
+			// RosterPlayerPosition -> RosterPlayer
+			entity.HasOne(e => e.RosterPlayer)
+				.WithMany(rp => rp.Positions)
+				.HasForeignKey(e => e.RosterPlayerId);
 
-			// RosterEntryPosition -> Position
+			// RosterPlayerPosition -> Position
 			entity.HasOne(e => e.Position)
-				.WithMany(p => p.RosterEntryPositions)
+				.WithMany(p => p.RosterPlayerPositions)
 				.HasForeignKey(e => e.PositionId);
 
 			#endregion

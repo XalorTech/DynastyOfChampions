@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 namespace DynastyOfChampions.Foundation.Data.Persistence.Configurations
 {
 	/// <summary>
-	/// Configures the PlayerHistory entity for EF Core.
+	/// Configures the PersonHistory entity for EF Core.
 	/// </summary>
-	public class PlayerHistoryConfiguration : IEntityTypeConfiguration<PlayerHistory>
+	public class PersonHistoryConfiguration : IEntityTypeConfiguration<PersonHistory>
 	{
-		public void Configure(EntityTypeBuilder<PlayerHistory> entity)
+		public void Configure(EntityTypeBuilder<PersonHistory> entity)
 		{
 			#region PrimaryKey
 
@@ -22,25 +22,21 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Configurations
 
 			#region Properties
 
-			// Player's given names
+			// Given Names
 			entity.Property(e => e.GivenNames)
 				.IsRequired()
 				.HasMaxLength(100);
 
-			// Player's surname
+			// Surname
 			entity.Property(e => e.Surname)
 				.IsRequired()
 				.HasMaxLength(100);
 
-			// Player's suffix
+			// Suffix
 			entity.Property(e => e.Suffix)
 				.HasMaxLength(20);
 
-			// Player's nickname
-			entity.Property(e => e.Nickname)
-				.HasMaxLength(100);
-
-			// Player Entry's start date
+			// Date record begins official use
 			entity.Property(e => e.StartDate)
 				.IsRequired();
 
@@ -48,18 +44,18 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Configurations
 
 			#region ForeignKeys
 
-			// PlayerHistory -> Player
-			entity.Property(e => e.PlayerId)
+			// PersonHistory -> Person
+			entity.Property(e => e.PersonId)
 				.IsRequired();
 
 			#endregion
 
 			#region Relationships
 
-			// PlayerHistory -> Player
-			entity.HasOne(e => e.Player)
+			// PersonHistory -> Person
+			entity.HasOne(e => e.Person)
 				.WithMany(p => p.History)
-				.HasForeignKey(e => e.PlayerId);
+				.HasForeignKey(e => e.PersonId);
 
 			#endregion
 		}

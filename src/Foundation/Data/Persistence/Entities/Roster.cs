@@ -51,10 +51,16 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Entities
 		public Season Season { get; set; } = null!;
 
 		/// <summary>
-		/// The collection of roster entries representing the players assigned
+		/// The collection of roster coach entries representing the coaches assigned
 		/// to this roster during the season.
 		/// </summary>
-		public ICollection<RosterEntry> Entries { get; set; } = new List<RosterEntry>();
+		public ICollection<RosterCoach> Coaches { get; set; } = new List<RosterCoach>();
+
+		/// <summary>
+		/// The collection of roster players representing the players assigned
+		/// to this roster during the season.
+		/// </summary>
+		public ICollection<RosterPlayer> Players { get; set; } = new List<RosterPlayer>();
 
 		#endregion
 	}

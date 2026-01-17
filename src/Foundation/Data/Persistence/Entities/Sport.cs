@@ -39,6 +39,18 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Entities
 		/// </summary>
 		public ICollection<League> Leagues { get; set; } = new List<League>();
 
+		/// <summary>
+		/// The collection of role types associated with this sport.
+		/// Each sport may contain multiple role types (e.g., Player, Coach).
+		/// </summary>
+		public ICollection<RoleType> RoleTypes { get; set; } = new List<RoleType>();
+
+		/// <summary>
+		/// The collection of career phases associated with this sport.
+		/// Each sport may contain multiple career phases (e.g., Rookie, Veteran).
+		/// </summary>
+		public ICollection<CareerPhase> CareerPhases { get; set; } = new List<CareerPhase>();
+
 		#endregion
 	}
 }

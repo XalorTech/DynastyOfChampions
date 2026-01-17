@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 namespace DynastyOfChampions.Foundation.Data.Persistence.Configurations
 {
 	/// <summary>
-	/// Configures the RosterEntry entity for EF Core.
+	/// Configures the RosterCoach entity for EF Core.
 	/// </summary>
-	public class RosterEntryConfiguration : IEntityTypeConfiguration<RosterEntry>
+	public class RosterCoachConfiguration : IEntityTypeConfiguration<RosterCoach>
 	{
-		public void Configure(EntityTypeBuilder<RosterEntry> entity)
+		public void Configure(EntityTypeBuilder<RosterCoach> entity)
 		{
 			#region PrimaryKey
 
@@ -22,11 +22,11 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Configurations
 
 			#region Properties
 
-			// Roster Entry's start date
+			// Date Coach joined the roster
 			entity.Property(e => e.StartDate)
 				.IsRequired();
 
-			// Roster Entry's notes
+			// Notes
 			entity.Property(e => e.Notes)
 				.HasMaxLength(500);
 
@@ -34,39 +34,34 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Configurations
 
 			#region ForeignKeys
 
-			// RosterEntry -> Roster
+			// RosterCoach -> Roster
 			entity.Property(e => e.RosterId)
 				.IsRequired();
 
-			// RosterEntry -> Player
-			entity.Property(e => e.PlayerId)
+			// RosterCoach -> Coach
+			entity.Property(e => e.CoachId)
 				.IsRequired();
 
 			#endregion
 
 			#region Relationships
 
-			// RosterEntry -> Roster
+			// RosterCoach -> Roster
 			entity.HasOne(e => e.Roster)
-				.WithMany(r => r.Entries)
+				.WithMany(r => r.Coaches)
 				.HasForeignKey(e => e.RosterId);
 
-			// RosterEntry -> Player
-			entity.HasOne(e => e.Player)
-				.WithMany(p => p.RosterEntries)
-				.HasForeignKey(e => e.PlayerId);
+			// RosterCoach -> Coach
+			entity.HasOne(e => e.Coach)
+				.WithMany(c => c.RosterCoaches)
+				.HasForeignKey(e => e.CoachId);
 
-			// RosterEntry -> Status
-			entity.HasOne(e => e.Status)
-				.WithMany()
-				.HasForeignKey(e => e.StatusId)
-				.OnDelete(DeleteBehavior.SetNull);
-
-			// RosterEntry -> Positions
-			entity.HasMany(e => e.Positions)
-				.WithOne(rep => rep.RosterEntry)
-				.HasForeignKey(rep => rep.RosterEntryId)
+			// RosterCoach -> RosterCoachType
+			entity.HasMany(e => e.CoachTypes)
+				.WithOne(rct => rct.RosterCoach)
+				.HasForeignKey(rct => rct.RosterCoachId)
 				.OnDelete(DeleteBehavior.Cascade);
+
 			#endregion
 		}
 	}

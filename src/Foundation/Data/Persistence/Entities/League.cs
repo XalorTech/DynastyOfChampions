@@ -31,6 +31,11 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Entities
 		#region Navigation Properties
 
 		/// <summary>
+		/// Historical records describing time-variant attributes of this league.
+		/// </summary>
+		public ICollection<LeagueHistory> History { get; set; } = new List<LeagueHistory>();
+
+		/// <summary>
 		/// The parent sport associated with this league.
 		/// </summary>
 		public Sport Sport { get; set; } = null!;
@@ -46,9 +51,34 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Entities
 		public ICollection<Season> Seasons { get; set; } = new List<Season>();
 
 		/// <summary>
-		/// Historical records describing time-variant attributes of this league.
+		/// The collection of role types representing the types assigned
+		/// to players and coaches in this league during the season.
 		/// </summary>
-		public ICollection<LeagueHistory> History { get; set; } = new List<LeagueHistory>();
+		public ICollection<RoleType> RoleTypes { get; set; } = new List<RoleType>();
+
+		/// <summary>
+		/// The collection of roster coach entries representing the coaches assigned
+		/// to this league during the season.
+		/// </summary>
+		public ICollection<RosterCoach> Coaches { get; set; } = new List<RosterCoach>();
+
+		/// <summary>
+		/// The collection of coach types representing the types assigned
+		/// to coaches in this league during the season.
+		/// </summary>
+		public ICollection<CoachType> CoachTypes { get; set; } = new List<CoachType>();
+
+		/// <summary>
+		/// The collection of roster player entries representing the players assigned
+		/// to this league during the season.
+		/// </summary>
+		public ICollection<RosterPlayer> Players { get; set; } = new List<RosterPlayer>();
+
+		/// <summary>
+		/// The collection of career phases representing the different stages
+		/// of player careers within this league.
+		/// </summary>
+		public ICollection<CareerPhase> CareerPhases { get; set; } = new List<CareerPhase>();
 
 		#endregion
 	}

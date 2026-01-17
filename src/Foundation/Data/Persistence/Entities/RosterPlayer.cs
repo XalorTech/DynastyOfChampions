@@ -4,16 +4,15 @@ using System.Collections.Generic;
 namespace DynastyOfChampions.Foundation.Data.Persistence.Entities
 {
 	/// <summary>
-	/// Represents a player's membership within a roster. Tracks jersey number,
-	/// status, positions, and the time period during which the player was part
-	/// of the roster.
+	/// Represents a player's membership within a roster, including jersey number,
+	/// status, and the time period during which the player was part of the roster.
 	/// </summary>
-	public class RosterEntry
+	public class RosterPlayer
 	{
 		#region Properties
 
 		/// <summary>
-		/// The unique identifier for this roster entry.
+		/// The unique identifier for this roster player entry.
 		/// </summary>
 		public Guid Id { get; set; }
 
@@ -21,11 +20,6 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Entities
 		/// The jersey number worn by the player during this roster assignment.
 		/// </summary>
 		public int? JerseyNumber { get; set; }
-
-		/// <summary>
-		/// Optional freeform notes associated with this roster assignment.
-		/// </summary>
-		public string? Notes { get; set; }
 
 		/// <summary>
 		/// The date on which this roster assignment became effective.
@@ -36,6 +30,11 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Entities
 		/// The date on which this roster assignment ended, if applicable.
 		/// </summary>
 		public DateTime? EndDate { get; set; }
+
+		/// <summary>
+		/// Optional freeform notes associated with this roster assignment.
+		/// </summary>
+		public string? Notes { get; set; }
 
 		#endregion
 
@@ -76,9 +75,9 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Entities
 		public Status? Status { get; set; }
 
 		/// <summary>
-		/// Navigation to the collection of positions assigned to this roster entry.
+		/// Navigation to the collection of positions assigned to this roster player.
 		/// </summary>
-		public ICollection<RosterEntryPosition> Positions { get; set; } = new List<RosterEntryPosition>();
+		public ICollection<RosterPlayerPosition> Positions { get; set; } = new List<RosterPlayerPosition>();
 
 		#endregion
 	}

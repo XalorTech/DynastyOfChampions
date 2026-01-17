@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 namespace DynastyOfChampions.Foundation.Data.Persistence.Configurations
 {
 	/// <summary>
-	/// Configures the Player entity for EF Core.
+	/// Configures the Coach entity for EF Core.
 	/// </summary>
-	public class PlayerConfiguration : IEntityTypeConfiguration<Player>
+	public class CoachConfiguration : IEntityTypeConfiguration<Coach>
 	{
-		public void Configure(EntityTypeBuilder<Player> entity)
+		public void Configure(EntityTypeBuilder<Coach> entity)
 		{
 			#region PrimaryKey
 
@@ -22,11 +22,11 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Configurations
 
 			#region ForeignKeys
 
-			// Player -> Person
+			// Coach -> Person
 			entity.Property(e => e.PersonId)
 				.IsRequired();
 
-			// Player -> League
+			// Coach -> League
 			entity.Property(e => e.LeagueId)
 				.IsRequired();
 
@@ -34,14 +34,14 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Configurations
 
 			#region Relationships
 
-			// Player -> Person
+			// Coach -> Person
 			entity.HasOne(e => e.Person)
-				.WithMany(p => p.PlayerRoles)
+				.WithMany(p => p.CoachRoles)
 				.HasForeignKey(e => e.PersonId);
 
-			// Player -> League
+			// Coach -> League
 			entity.HasOne(e => e.League)
-				.WithMany(l => l.Players)
+				.WithMany(l => l.Coaches)
 				.HasForeignKey(e => e.LeagueId);
 
 			#endregion
