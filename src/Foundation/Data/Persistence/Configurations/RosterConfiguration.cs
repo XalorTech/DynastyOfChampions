@@ -38,8 +38,13 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Configurations
 				.WithMany(s => s.Rosters)
 				.HasForeignKey(e => e.SeasonId);
 
-			// Roster -> RosterEntry
-			entity.HasMany(e => e.Entries)
+			// Roster -> RosterCoach
+			entity.HasMany(e => e.Coaches)
+				.WithOne(e => e.Roster)
+				.HasForeignKey(e => e.RosterId);
+
+			// Roster -> RosterPlayer
+			entity.HasMany(e => e.Players)
 				.WithOne(e => e.Roster)
 				.HasForeignKey(e => e.RosterId);
 

@@ -52,33 +52,45 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Entities
 
 		/// <summary>
 		/// The collection of role types representing the types assigned
-		/// to players and coaches in this league during the season.
+		/// to players and coaches in this league.
 		/// </summary>
 		public ICollection<RoleType> RoleTypes { get; set; } = new List<RoleType>();
 
 		/// <summary>
 		/// The collection of roster coach entries representing the coaches assigned
-		/// to this league during the season.
+		/// to this league.
 		/// </summary>
-		public ICollection<RosterCoach> Coaches { get; set; } = new List<RosterCoach>();
+		public ICollection<Coach> Coaches { get; set; } = new List<Coach>();
 
 		/// <summary>
-		/// The collection of coach types representing the types assigned
-		/// to coaches in this league during the season.
+		/// The collection of player entries representing the players assigned
+		/// to this league.
 		/// </summary>
-		public ICollection<CoachType> CoachTypes { get; set; } = new List<CoachType>();
-
-		/// <summary>
-		/// The collection of roster player entries representing the players assigned
-		/// to this league during the season.
-		/// </summary>
-		public ICollection<RosterPlayer> Players { get; set; } = new List<RosterPlayer>();
+		public ICollection<Player> Players { get; set; } = new List<Player>();
 
 		/// <summary>
 		/// The collection of career phases representing the different stages
 		/// of player careers within this league.
 		/// </summary>
 		public ICollection<CareerPhase> CareerPhases { get; set; } = new List<CareerPhase>();
+
+		/// <summary>
+		/// The collection of coach types representing the types assigned
+		/// to coaches in this league.
+		/// </summary>
+		public ICollection<CoachType> CoachTypes { get; set; } = new List<CoachType>();
+
+		/// <summary>
+		/// The collection of positions representing the positions assigned
+		/// to players in this league.
+		/// </summary>
+		public ICollection<Position> Positions { get; set; } = new List<Position>();
+
+		/// <summary>
+		/// The collection of status types representing the statuses assigned
+		/// to players and coaches in this league.
+		/// </summary>
+		public ICollection<Status> Statuses { get; set; } = new List<Status>();
 
 		#endregion
 	}

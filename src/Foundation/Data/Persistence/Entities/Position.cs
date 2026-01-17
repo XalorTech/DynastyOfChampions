@@ -68,7 +68,7 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Entities
 		/// <summary>
 		/// Navigation to the collection of roster entry assignments referencing this position.
 		/// </summary>
-		public ICollection<RosterEntryPosition> RosterEntryPositions { get; set; } = new List<RosterEntryPosition>();
+		public ICollection<RosterPlayerPosition> RosterPlayerPositions { get; set; } = new List<RosterPlayerPosition>();
 
 		#endregion
 	}

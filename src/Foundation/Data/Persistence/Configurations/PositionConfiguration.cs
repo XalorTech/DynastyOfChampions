@@ -59,10 +59,11 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Configurations
 				.HasForeignKey(e => e.ParentId)
 				.OnDelete(DeleteBehavior.Restrict);
 
-			// Position -> RosterEntryPositions
-			entity.HasMany(e => e.RosterEntryPositions)
-				.WithOne(rep => rep.Position)
-				.HasForeignKey(rep => rep.PositionId);
+			// Position -> RosterPlayerPositions
+			entity.HasMany(e => e.RosterPlayerPositions)
+				.WithOne(rpp => rpp.Position)
+				.HasForeignKey(rpp => rpp.PositionId);
+
 			#endregion
 		}
 	}
