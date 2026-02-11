@@ -10,1167 +10,1167 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DynastyOfChampions.Foundation.Data.Persistence.Migrations
 {
-    [DbContext(typeof(DynastyDbContext))]
-    partial class DynastyDbContextModelSnapshot : ModelSnapshot
-    {
-        protected override void BuildModel(ModelBuilder modelBuilder)
-        {
+	[DbContext(typeof(DynastyDbContext))]
+	partial class DynastyDbContextModelSnapshot : ModelSnapshot
+	{
+		protected override void BuildModel(ModelBuilder modelBuilder)
+		{
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasAnnotation("ProductVersion", "10.0.1")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+			modelBuilder
+				.HasAnnotation("ProductVersion", "10.0.1")
+				.HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+			SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.CareerPhase", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.CareerPhase", b =>
+				{
+					b.Property<Guid>("Id")
+						.ValueGeneratedOnAdd()
+						.HasColumnType("uniqueidentifier")
+						.HasDefaultValueSql("NEWSEQUENTIALID()");
 
-                    b.Property<DateTime?>("EndDate")
-                        .HasColumnType("datetime2");
+					b.Property<DateTime?>("EndDate")
+						.HasColumnType("datetime2");
 
-                    b.Property<string>("EndReason")
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+					b.Property<string>("EndReason")
+						.HasMaxLength(200)
+						.HasColumnType("nvarchar(200)");
 
-                    b.Property<Guid>("LeagueId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid>("LeagueId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("PersonId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid>("PersonId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("RoleTypeId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid>("RoleTypeId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("SportId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid>("SportId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
+					b.Property<DateTime>("StartDate")
+						.HasColumnType("datetime2");
 
-                    b.HasKey("Id");
+					b.HasKey("Id");
 
-                    b.HasIndex("LeagueId");
+					b.HasIndex("LeagueId");
 
-                    b.HasIndex("PersonId");
+					b.HasIndex("PersonId");
 
-                    b.HasIndex("RoleTypeId");
+					b.HasIndex("RoleTypeId");
 
-                    b.HasIndex("SportId");
+					b.HasIndex("SportId");
 
-                    b.ToTable("CareerPhases");
-                });
+					b.ToTable("CareerPhases");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Coach", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Coach", b =>
+				{
+					b.Property<Guid>("Id")
+						.ValueGeneratedOnAdd()
+						.HasColumnType("uniqueidentifier")
+						.HasDefaultValueSql("NEWSEQUENTIALID()");
 
-                    b.Property<Guid>("LeagueId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid>("LeagueId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("PersonId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid>("PersonId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.HasKey("Id");
+					b.HasKey("Id");
 
-                    b.HasIndex("LeagueId");
+					b.HasIndex("LeagueId");
 
-                    b.HasIndex("PersonId");
+					b.HasIndex("PersonId");
 
-                    b.ToTable("Coaches");
-                });
+					b.ToTable("Coaches");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.CoachType", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.CoachType", b =>
+				{
+					b.Property<Guid>("Id")
+						.ValueGeneratedOnAdd()
+						.HasColumnType("uniqueidentifier")
+						.HasDefaultValueSql("NEWSEQUENTIALID()");
 
-                    b.Property<string>("Abbreviation")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+					b.Property<string>("Abbreviation")
+						.IsRequired()
+						.HasMaxLength(20)
+						.HasColumnType("nvarchar(20)");
 
-                    b.Property<string>("Description")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+					b.Property<string>("Description")
+						.HasMaxLength(500)
+						.HasColumnType("nvarchar(500)");
 
-                    b.Property<Guid>("LeagueId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid>("LeagueId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+					b.Property<string>("Name")
+						.IsRequired()
+						.HasMaxLength(100)
+						.HasColumnType("nvarchar(100)");
 
-                    b.Property<int>("SortOrder")
-                        .HasColumnType("int");
+					b.Property<int>("SortOrder")
+						.HasColumnType("int");
 
-                    b.HasKey("Id");
+					b.HasKey("Id");
 
-                    b.HasIndex("LeagueId");
+					b.HasIndex("LeagueId");
 
-                    b.ToTable("CoachTypes");
-                });
+					b.ToTable("CoachTypes");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.League", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.League", b =>
+				{
+					b.Property<Guid>("Id")
+						.ValueGeneratedOnAdd()
+						.HasColumnType("uniqueidentifier")
+						.HasDefaultValueSql("NEWSEQUENTIALID()");
 
-                    b.Property<Guid>("SportId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid>("SportId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.HasKey("Id");
+					b.HasKey("Id");
 
-                    b.HasIndex("SportId");
+					b.HasIndex("SportId");
 
-                    b.ToTable("Leagues");
-                });
+					b.ToTable("Leagues");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.LeagueHistory", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.LeagueHistory", b =>
+				{
+					b.Property<Guid>("Id")
+						.ValueGeneratedOnAdd()
+						.HasColumnType("uniqueidentifier")
+						.HasDefaultValueSql("NEWSEQUENTIALID()");
 
-                    b.Property<string>("Abbreviation")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+					b.Property<string>("Abbreviation")
+						.IsRequired()
+						.HasMaxLength(20)
+						.HasColumnType("nvarchar(20)");
 
-                    b.Property<string>("Description")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+					b.Property<string>("Description")
+						.HasMaxLength(500)
+						.HasColumnType("nvarchar(500)");
 
-                    b.Property<DateTime?>("EndDate")
-                        .HasColumnType("datetime2");
+					b.Property<DateTime?>("EndDate")
+						.HasColumnType("datetime2");
 
-                    b.Property<Guid>("LeagueId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid>("LeagueId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+					b.Property<string>("Name")
+						.IsRequired()
+						.HasMaxLength(100)
+						.HasColumnType("nvarchar(100)");
 
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
+					b.Property<DateTime>("StartDate")
+						.HasColumnType("datetime2");
 
-                    b.HasKey("Id");
+					b.HasKey("Id");
 
-                    b.HasIndex("LeagueId");
+					b.HasIndex("LeagueId");
 
-                    b.ToTable("LeagueHistories");
-                });
+					b.ToTable("LeagueHistories");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.LeagueUnit", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.LeagueUnit", b =>
+				{
+					b.Property<Guid>("Id")
+						.ValueGeneratedOnAdd()
+						.HasColumnType("uniqueidentifier")
+						.HasDefaultValueSql("NEWSEQUENTIALID()");
 
-                    b.Property<Guid>("LeagueId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid>("LeagueId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.HasKey("Id");
+					b.HasKey("Id");
 
-                    b.HasIndex("LeagueId");
+					b.HasIndex("LeagueId");
 
-                    b.ToTable("LeagueUnits");
-                });
+					b.ToTable("LeagueUnits");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.LeagueUnitHistory", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.LeagueUnitHistory", b =>
+				{
+					b.Property<Guid>("Id")
+						.ValueGeneratedOnAdd()
+						.HasColumnType("uniqueidentifier")
+						.HasDefaultValueSql("NEWSEQUENTIALID()");
 
-                    b.Property<string>("DisplayLabel")
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+					b.Property<string>("DisplayLabel")
+						.HasMaxLength(50)
+						.HasColumnType("nvarchar(50)");
 
-                    b.Property<DateTime?>("EndDate")
-                        .HasColumnType("datetime2");
+					b.Property<DateTime?>("EndDate")
+						.HasColumnType("datetime2");
 
-                    b.Property<Guid>("LeagueUnitId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid>("LeagueUnitId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("Level")
-                        .HasColumnType("int");
+					b.Property<int>("Level")
+						.HasColumnType("int");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+					b.Property<string>("Name")
+						.IsRequired()
+						.HasMaxLength(100)
+						.HasColumnType("nvarchar(100)");
 
-                    b.Property<Guid?>("ParentId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid?>("ParentId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
+					b.Property<DateTime>("StartDate")
+						.HasColumnType("datetime2");
 
-                    b.HasKey("Id");
+					b.HasKey("Id");
 
-                    b.HasIndex("LeagueUnitId");
+					b.HasIndex("LeagueUnitId");
 
-                    b.HasIndex("ParentId");
+					b.HasIndex("ParentId");
 
-                    b.ToTable("LeagueUnitHistories");
-                });
+					b.ToTable("LeagueUnitHistories");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Person", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Person", b =>
+				{
+					b.Property<Guid>("Id")
+						.ValueGeneratedOnAdd()
+						.HasColumnType("uniqueidentifier")
+						.HasDefaultValueSql("NEWSEQUENTIALID()");
 
-                    b.Property<string>("ActiveNickname")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+					b.Property<string>("ActiveNickname")
+						.HasMaxLength(100)
+						.HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("BirthCity")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+					b.Property<string>("BirthCity")
+						.HasMaxLength(100)
+						.HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("BirthCountry")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+					b.Property<string>("BirthCountry")
+						.HasMaxLength(100)
+						.HasColumnType("nvarchar(100)");
 
-                    b.Property<DateTime?>("BirthDate")
-                        .HasColumnType("datetime2");
+					b.Property<DateTime?>("BirthDate")
+						.HasColumnType("datetime2");
 
-                    b.Property<string>("BirthRegion")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+					b.Property<string>("BirthRegion")
+						.HasMaxLength(100)
+						.HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("DeathCity")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+					b.Property<string>("DeathCity")
+						.HasMaxLength(100)
+						.HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("DeathCountry")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+					b.Property<string>("DeathCountry")
+						.HasMaxLength(100)
+						.HasColumnType("nvarchar(100)");
 
-                    b.Property<DateTime?>("DeathDate")
-                        .HasColumnType("datetime2");
+					b.Property<DateTime?>("DeathDate")
+						.HasColumnType("datetime2");
 
-                    b.Property<string>("DeathRegion")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+					b.Property<string>("DeathRegion")
+						.HasMaxLength(100)
+						.HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("DisplayName")
-                        .HasMaxLength(150)
-                        .HasColumnType("nvarchar(150)");
+					b.Property<string>("DisplayName")
+						.HasMaxLength(150)
+						.HasColumnType("nvarchar(150)");
 
-                    b.HasKey("Id");
+					b.HasKey("Id");
 
-                    b.ToTable("Persons");
-                });
+					b.ToTable("Persons");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.PersonHistory", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.PersonHistory", b =>
+				{
+					b.Property<Guid>("Id")
+						.ValueGeneratedOnAdd()
+						.HasColumnType("uniqueidentifier")
+						.HasDefaultValueSql("NEWSEQUENTIALID()");
 
-                    b.Property<DateTime?>("EndDate")
-                        .HasColumnType("datetime2");
+					b.Property<DateTime?>("EndDate")
+						.HasColumnType("datetime2");
 
-                    b.Property<string>("GivenNames")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+					b.Property<string>("GivenNames")
+						.IsRequired()
+						.HasMaxLength(100)
+						.HasColumnType("nvarchar(100)");
 
-                    b.Property<Guid>("PersonId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid>("PersonId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
+					b.Property<DateTime>("StartDate")
+						.HasColumnType("datetime2");
 
-                    b.Property<string>("Suffix")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+					b.Property<string>("Suffix")
+						.HasMaxLength(20)
+						.HasColumnType("nvarchar(20)");
 
-                    b.Property<string>("Surname")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+					b.Property<string>("Surname")
+						.IsRequired()
+						.HasMaxLength(100)
+						.HasColumnType("nvarchar(100)");
 
-                    b.HasKey("Id");
+					b.HasKey("Id");
 
-                    b.HasIndex("PersonId");
+					b.HasIndex("PersonId");
 
-                    b.ToTable("PersonHistories");
-                });
+					b.ToTable("PersonHistories");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.PersonNickname", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.PersonNickname", b =>
+				{
+					b.Property<Guid>("Id")
+						.ValueGeneratedOnAdd()
+						.HasColumnType("uniqueidentifier")
+						.HasDefaultValueSql("NEWSEQUENTIALID()");
 
-                    b.Property<string>("Nickname")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+					b.Property<string>("Nickname")
+						.IsRequired()
+						.HasMaxLength(100)
+						.HasColumnType("nvarchar(100)");
 
-                    b.Property<Guid>("PersonHistoryId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid>("PersonHistoryId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.HasKey("Id");
+					b.HasKey("Id");
 
-                    b.HasIndex("PersonHistoryId");
+					b.HasIndex("PersonHistoryId");
 
-                    b.ToTable("PersonNicknames");
-                });
+					b.ToTable("PersonNicknames");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Player", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Player", b =>
+				{
+					b.Property<Guid>("Id")
+						.ValueGeneratedOnAdd()
+						.HasColumnType("uniqueidentifier")
+						.HasDefaultValueSql("NEWSEQUENTIALID()");
 
-                    b.Property<Guid>("LeagueId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid>("LeagueId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("PersonId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid>("PersonId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.HasKey("Id");
+					b.HasKey("Id");
 
-                    b.HasIndex("LeagueId");
+					b.HasIndex("LeagueId");
 
-                    b.HasIndex("PersonId");
+					b.HasIndex("PersonId");
 
-                    b.ToTable("Players");
-                });
+					b.ToTable("Players");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Position", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Position", b =>
+				{
+					b.Property<Guid>("Id")
+						.ValueGeneratedOnAdd()
+						.HasColumnType("uniqueidentifier")
+						.HasDefaultValueSql("NEWSEQUENTIALID()");
 
-                    b.Property<string>("Abbreviation")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+					b.Property<string>("Abbreviation")
+						.IsRequired()
+						.HasMaxLength(20)
+						.HasColumnType("nvarchar(20)");
 
-                    b.Property<string>("Description")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+					b.Property<string>("Description")
+						.HasMaxLength(500)
+						.HasColumnType("nvarchar(500)");
 
-                    b.Property<Guid>("LeagueId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid>("LeagueId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+					b.Property<string>("Name")
+						.IsRequired()
+						.HasMaxLength(100)
+						.HasColumnType("nvarchar(100)");
 
-                    b.Property<Guid?>("ParentId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid?>("ParentId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.HasKey("Id");
+					b.HasKey("Id");
 
-                    b.HasIndex("LeagueId");
+					b.HasIndex("LeagueId");
 
-                    b.HasIndex("ParentId");
+					b.HasIndex("ParentId");
 
-                    b.ToTable("Positions");
-                });
+					b.ToTable("Positions");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.RoleType", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.RoleType", b =>
+				{
+					b.Property<Guid>("Id")
+						.ValueGeneratedOnAdd()
+						.HasColumnType("uniqueidentifier")
+						.HasDefaultValueSql("NEWSEQUENTIALID()");
 
-                    b.Property<string>("Description")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+					b.Property<string>("Description")
+						.HasMaxLength(500)
+						.HasColumnType("nvarchar(500)");
 
-                    b.Property<Guid?>("LeagueId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid?>("LeagueId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+					b.Property<string>("Name")
+						.IsRequired()
+						.HasMaxLength(100)
+						.HasColumnType("nvarchar(100)");
 
-                    b.Property<int>("SortOrder")
-                        .HasColumnType("int");
+					b.Property<int>("SortOrder")
+						.HasColumnType("int");
 
-                    b.Property<Guid?>("SportId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid?>("SportId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.HasKey("Id");
+					b.HasKey("Id");
 
-                    b.HasIndex("LeagueId");
+					b.HasIndex("LeagueId");
 
-                    b.HasIndex("SportId");
+					b.HasIndex("SportId");
 
-                    b.ToTable("RoleTypes");
-                });
+					b.ToTable("RoleTypes");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Roster", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Roster", b =>
+				{
+					b.Property<Guid>("Id")
+						.ValueGeneratedOnAdd()
+						.HasColumnType("uniqueidentifier")
+						.HasDefaultValueSql("NEWSEQUENTIALID()");
 
-                    b.Property<string>("RosterType")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+					b.Property<string>("RosterType")
+						.IsRequired()
+						.HasMaxLength(50)
+						.HasColumnType("nvarchar(50)");
 
-                    b.Property<Guid>("SeasonId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid>("SeasonId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("TeamId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid>("TeamId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.HasKey("Id");
+					b.HasKey("Id");
 
-                    b.HasIndex("SeasonId");
+					b.HasIndex("SeasonId");
 
-                    b.HasIndex("TeamId");
+					b.HasIndex("TeamId");
 
-                    b.ToTable("Rosters");
-                });
+					b.ToTable("Rosters");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.RosterCoach", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.RosterCoach", b =>
+				{
+					b.Property<Guid>("Id")
+						.ValueGeneratedOnAdd()
+						.HasColumnType("uniqueidentifier")
+						.HasDefaultValueSql("NEWSEQUENTIALID()");
 
-                    b.Property<Guid>("CoachId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid>("CoachId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime?>("EndDate")
-                        .HasColumnType("datetime2");
+					b.Property<DateTime?>("EndDate")
+						.HasColumnType("datetime2");
 
-                    b.Property<string>("Notes")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+					b.Property<string>("Notes")
+						.HasMaxLength(500)
+						.HasColumnType("nvarchar(500)");
 
-                    b.Property<Guid>("RosterId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid>("RosterId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
+					b.Property<DateTime>("StartDate")
+						.HasColumnType("datetime2");
 
-                    b.HasKey("Id");
+					b.HasKey("Id");
 
-                    b.HasIndex("CoachId");
+					b.HasIndex("CoachId");
 
-                    b.HasIndex("RosterId");
+					b.HasIndex("RosterId");
 
-                    b.ToTable("RosterCoaches");
-                });
+					b.ToTable("RosterCoaches");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.RosterCoachType", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.RosterCoachType", b =>
+				{
+					b.Property<Guid>("Id")
+						.ValueGeneratedOnAdd()
+						.HasColumnType("uniqueidentifier")
+						.HasDefaultValueSql("NEWSEQUENTIALID()");
 
-                    b.Property<Guid>("CoachTypeId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid>("CoachTypeId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("RosterCoachId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid>("RosterCoachId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.HasKey("Id");
+					b.HasKey("Id");
 
-                    b.HasIndex("CoachTypeId");
+					b.HasIndex("CoachTypeId");
 
-                    b.HasIndex("RosterCoachId");
+					b.HasIndex("RosterCoachId");
 
-                    b.ToTable("RosterCoachTypes");
-                });
+					b.ToTable("RosterCoachTypes");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.RosterPlayer", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.RosterPlayer", b =>
+				{
+					b.Property<Guid>("Id")
+						.ValueGeneratedOnAdd()
+						.HasColumnType("uniqueidentifier")
+						.HasDefaultValueSql("NEWSEQUENTIALID()");
 
-                    b.Property<DateTime?>("EndDate")
-                        .HasColumnType("datetime2");
+					b.Property<DateTime?>("EndDate")
+						.HasColumnType("datetime2");
 
-                    b.Property<int?>("JerseyNumber")
-                        .HasColumnType("int");
+					b.Property<int?>("JerseyNumber")
+						.HasColumnType("int");
 
-                    b.Property<string>("Notes")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+					b.Property<string>("Notes")
+						.HasMaxLength(500)
+						.HasColumnType("nvarchar(500)");
 
-                    b.Property<Guid>("PlayerId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid>("PlayerId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("RosterId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid>("RosterId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
+					b.Property<DateTime>("StartDate")
+						.HasColumnType("datetime2");
 
-                    b.Property<Guid?>("StatusId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid?>("StatusId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.HasKey("Id");
+					b.HasKey("Id");
 
-                    b.HasIndex("PlayerId");
+					b.HasIndex("PlayerId");
 
-                    b.HasIndex("RosterId");
+					b.HasIndex("RosterId");
 
-                    b.HasIndex("StatusId");
+					b.HasIndex("StatusId");
 
-                    b.ToTable("RosterPlayers");
-                });
+					b.ToTable("RosterPlayers");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.RosterPlayerPosition", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.RosterPlayerPosition", b =>
+				{
+					b.Property<Guid>("Id")
+						.ValueGeneratedOnAdd()
+						.HasColumnType("uniqueidentifier")
+						.HasDefaultValueSql("NEWSEQUENTIALID()");
 
-                    b.Property<Guid>("PositionId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid>("PositionId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("RosterPlayerId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid>("RosterPlayerId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.HasKey("Id");
+					b.HasKey("Id");
 
-                    b.HasIndex("PositionId");
+					b.HasIndex("PositionId");
 
-                    b.HasIndex("RosterPlayerId");
+					b.HasIndex("RosterPlayerId");
 
-                    b.ToTable("RosterPlayerPositions");
-                });
+					b.ToTable("RosterPlayerPositions");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Season", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Season", b =>
+				{
+					b.Property<Guid>("Id")
+						.ValueGeneratedOnAdd()
+						.HasColumnType("uniqueidentifier")
+						.HasDefaultValueSql("NEWSEQUENTIALID()");
 
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("datetime2");
+					b.Property<DateTime>("EndDate")
+						.HasColumnType("datetime2");
 
-                    b.Property<Guid>("LeagueId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid>("LeagueId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
+					b.Property<DateTime>("StartDate")
+						.HasColumnType("datetime2");
 
-                    b.Property<int>("Year")
-                        .HasColumnType("int");
+					b.Property<int>("Year")
+						.HasColumnType("int");
 
-                    b.HasKey("Id");
+					b.HasKey("Id");
 
-                    b.HasIndex("LeagueId");
+					b.HasIndex("LeagueId");
 
-                    b.ToTable("Seasons");
-                });
+					b.ToTable("Seasons");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Sport", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Sport", b =>
+				{
+					b.Property<Guid>("Id")
+						.ValueGeneratedOnAdd()
+						.HasColumnType("uniqueidentifier")
+						.HasDefaultValueSql("NEWSEQUENTIALID()");
 
-                    b.Property<string>("Description")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+					b.Property<string>("Description")
+						.HasMaxLength(500)
+						.HasColumnType("nvarchar(500)");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+					b.Property<string>("Name")
+						.IsRequired()
+						.HasMaxLength(100)
+						.HasColumnType("nvarchar(100)");
 
-                    b.HasKey("Id");
+					b.HasKey("Id");
 
-                    b.ToTable("Sports");
-                });
+					b.ToTable("Sports");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Status", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Status", b =>
+				{
+					b.Property<Guid>("Id")
+						.ValueGeneratedOnAdd()
+						.HasColumnType("uniqueidentifier")
+						.HasDefaultValueSql("NEWSEQUENTIALID()");
 
-                    b.Property<string>("Abbreviation")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+					b.Property<string>("Abbreviation")
+						.IsRequired()
+						.HasMaxLength(20)
+						.HasColumnType("nvarchar(20)");
 
-                    b.Property<string>("Description")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
+					b.Property<string>("Description")
+						.HasMaxLength(500)
+						.HasColumnType("nvarchar(500)");
 
-                    b.Property<Guid>("LeagueId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid>("LeagueId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+					b.Property<string>("Name")
+						.IsRequired()
+						.HasMaxLength(100)
+						.HasColumnType("nvarchar(100)");
 
-                    b.Property<int>("SortOrder")
-                        .HasColumnType("int");
+					b.Property<int>("SortOrder")
+						.HasColumnType("int");
 
-                    b.HasKey("Id");
+					b.HasKey("Id");
 
-                    b.HasIndex("LeagueId");
+					b.HasIndex("LeagueId");
 
-                    b.ToTable("Statuses");
-                });
+					b.ToTable("Statuses");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Team", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Team", b =>
+				{
+					b.Property<Guid>("Id")
+						.ValueGeneratedOnAdd()
+						.HasColumnType("uniqueidentifier")
+						.HasDefaultValueSql("NEWSEQUENTIALID()");
 
-                    b.Property<Guid>("LeagueUnitId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid>("LeagueUnitId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.HasKey("Id");
+					b.HasKey("Id");
 
-                    b.HasIndex("LeagueUnitId");
+					b.HasIndex("LeagueUnitId");
 
-                    b.ToTable("Teams");
-                });
+					b.ToTable("Teams");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.TeamHistory", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWSEQUENTIALID()");
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.TeamHistory", b =>
+				{
+					b.Property<Guid>("Id")
+						.ValueGeneratedOnAdd()
+						.HasColumnType("uniqueidentifier")
+						.HasDefaultValueSql("NEWSEQUENTIALID()");
 
-                    b.Property<string>("Abbreviation")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+					b.Property<string>("Abbreviation")
+						.IsRequired()
+						.HasMaxLength(20)
+						.HasColumnType("nvarchar(20)");
 
-                    b.Property<string>("City")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+					b.Property<string>("City")
+						.HasMaxLength(100)
+						.HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("Country")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+					b.Property<string>("Country")
+						.HasMaxLength(100)
+						.HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("DisplayLocation")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+					b.Property<string>("DisplayLocation")
+						.HasMaxLength(100)
+						.HasColumnType("nvarchar(100)");
 
-                    b.Property<DateTime?>("EndDate")
-                        .HasColumnType("datetime2");
+					b.Property<DateTime?>("EndDate")
+						.HasColumnType("datetime2");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+					b.Property<string>("Name")
+						.IsRequired()
+						.HasMaxLength(100)
+						.HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("Region")
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+					b.Property<string>("Region")
+						.HasMaxLength(100)
+						.HasColumnType("nvarchar(100)");
 
-                    b.Property<string>("ShortLocation")
-                        .HasMaxLength(20)
-                        .HasColumnType("nvarchar(20)");
+					b.Property<string>("ShortLocation")
+						.HasMaxLength(20)
+						.HasColumnType("nvarchar(20)");
 
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
+					b.Property<DateTime>("StartDate")
+						.HasColumnType("datetime2");
 
-                    b.Property<Guid>("TeamId")
-                        .HasColumnType("uniqueidentifier");
+					b.Property<Guid>("TeamId")
+						.HasColumnType("uniqueidentifier");
 
-                    b.HasKey("Id");
+					b.HasKey("Id");
 
-                    b.HasIndex("TeamId");
+					b.HasIndex("TeamId");
 
-                    b.ToTable("TeamHistories");
-                });
+					b.ToTable("TeamHistories");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.CareerPhase", b =>
-                {
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.League", "League")
-                        .WithMany("CareerPhases")
-                        .HasForeignKey("LeagueId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.CareerPhase", b =>
+				{
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.League", "League")
+						.WithMany("CareerPhases")
+						.HasForeignKey("LeagueId")
+						.OnDelete(DeleteBehavior.Cascade)
+						.IsRequired();
 
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Person", "Person")
-                        .WithMany("CareerPhases")
-                        .HasForeignKey("PersonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Person", "Person")
+						.WithMany("CareerPhases")
+						.HasForeignKey("PersonId")
+						.OnDelete(DeleteBehavior.Cascade)
+						.IsRequired();
 
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.RoleType", "RoleType")
-                        .WithMany("CareerPhases")
-                        .HasForeignKey("RoleTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.RoleType", "RoleType")
+						.WithMany("CareerPhases")
+						.HasForeignKey("RoleTypeId")
+						.OnDelete(DeleteBehavior.Cascade)
+						.IsRequired();
 
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Sport", "Sport")
-                        .WithMany("CareerPhases")
-                        .HasForeignKey("SportId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Sport", "Sport")
+						.WithMany("CareerPhases")
+						.HasForeignKey("SportId")
+						.OnDelete(DeleteBehavior.Cascade)
+						.IsRequired();
 
-                    b.Navigation("League");
+					b.Navigation("League");
 
-                    b.Navigation("Person");
+					b.Navigation("Person");
 
-                    b.Navigation("RoleType");
+					b.Navigation("RoleType");
 
-                    b.Navigation("Sport");
-                });
+					b.Navigation("Sport");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Coach", b =>
-                {
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.League", "League")
-                        .WithMany("Coaches")
-                        .HasForeignKey("LeagueId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Coach", b =>
+				{
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.League", "League")
+						.WithMany("Coaches")
+						.HasForeignKey("LeagueId")
+						.OnDelete(DeleteBehavior.Cascade)
+						.IsRequired();
 
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Person", "Person")
-                        .WithMany("CoachRoles")
-                        .HasForeignKey("PersonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Person", "Person")
+						.WithMany("CoachRoles")
+						.HasForeignKey("PersonId")
+						.OnDelete(DeleteBehavior.Cascade)
+						.IsRequired();
 
-                    b.Navigation("League");
+					b.Navigation("League");
 
-                    b.Navigation("Person");
-                });
+					b.Navigation("Person");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.CoachType", b =>
-                {
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.League", "League")
-                        .WithMany("CoachTypes")
-                        .HasForeignKey("LeagueId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.CoachType", b =>
+				{
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.League", "League")
+						.WithMany("CoachTypes")
+						.HasForeignKey("LeagueId")
+						.OnDelete(DeleteBehavior.Cascade)
+						.IsRequired();
 
-                    b.Navigation("League");
-                });
+					b.Navigation("League");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.League", b =>
-                {
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Sport", "Sport")
-                        .WithMany("Leagues")
-                        .HasForeignKey("SportId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.League", b =>
+				{
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Sport", "Sport")
+						.WithMany("Leagues")
+						.HasForeignKey("SportId")
+						.OnDelete(DeleteBehavior.Cascade)
+						.IsRequired();
 
-                    b.Navigation("Sport");
-                });
+					b.Navigation("Sport");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.LeagueHistory", b =>
-                {
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.League", "League")
-                        .WithMany("History")
-                        .HasForeignKey("LeagueId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.LeagueHistory", b =>
+				{
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.League", "League")
+						.WithMany("History")
+						.HasForeignKey("LeagueId")
+						.OnDelete(DeleteBehavior.Cascade)
+						.IsRequired();
 
-                    b.Navigation("League");
-                });
+					b.Navigation("League");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.LeagueUnit", b =>
-                {
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.League", "League")
-                        .WithMany("LeagueUnits")
-                        .HasForeignKey("LeagueId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.LeagueUnit", b =>
+				{
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.League", "League")
+						.WithMany("LeagueUnits")
+						.HasForeignKey("LeagueId")
+						.OnDelete(DeleteBehavior.Cascade)
+						.IsRequired();
 
-                    b.Navigation("League");
-                });
+					b.Navigation("League");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.LeagueUnitHistory", b =>
-                {
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.LeagueUnit", "LeagueUnit")
-                        .WithMany("History")
-                        .HasForeignKey("LeagueUnitId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.LeagueUnitHistory", b =>
+				{
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.LeagueUnit", "LeagueUnit")
+						.WithMany("History")
+						.HasForeignKey("LeagueUnitId")
+						.OnDelete(DeleteBehavior.Cascade)
+						.IsRequired();
 
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.LeagueUnitHistory", null)
-                        .WithMany()
-                        .HasForeignKey("ParentId")
-                        .OnDelete(DeleteBehavior.Restrict);
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.LeagueUnitHistory", null)
+						.WithMany()
+						.HasForeignKey("ParentId")
+						.OnDelete(DeleteBehavior.Restrict);
 
-                    b.Navigation("LeagueUnit");
-                });
+					b.Navigation("LeagueUnit");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.PersonHistory", b =>
-                {
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Person", "Person")
-                        .WithMany("History")
-                        .HasForeignKey("PersonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.PersonHistory", b =>
+				{
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Person", "Person")
+						.WithMany("History")
+						.HasForeignKey("PersonId")
+						.OnDelete(DeleteBehavior.Cascade)
+						.IsRequired();
 
-                    b.Navigation("Person");
-                });
+					b.Navigation("Person");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.PersonNickname", b =>
-                {
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.PersonHistory", "PersonHistory")
-                        .WithMany("Nicknames")
-                        .HasForeignKey("PersonHistoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.PersonNickname", b =>
+				{
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.PersonHistory", "PersonHistory")
+						.WithMany("Nicknames")
+						.HasForeignKey("PersonHistoryId")
+						.OnDelete(DeleteBehavior.Cascade)
+						.IsRequired();
 
-                    b.Navigation("PersonHistory");
-                });
+					b.Navigation("PersonHistory");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Player", b =>
-                {
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.League", "League")
-                        .WithMany("Players")
-                        .HasForeignKey("LeagueId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Player", b =>
+				{
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.League", "League")
+						.WithMany("Players")
+						.HasForeignKey("LeagueId")
+						.OnDelete(DeleteBehavior.Cascade)
+						.IsRequired();
 
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Person", "Person")
-                        .WithMany("PlayerRoles")
-                        .HasForeignKey("PersonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Person", "Person")
+						.WithMany("PlayerRoles")
+						.HasForeignKey("PersonId")
+						.OnDelete(DeleteBehavior.Cascade)
+						.IsRequired();
 
-                    b.Navigation("League");
+					b.Navigation("League");
 
-                    b.Navigation("Person");
-                });
+					b.Navigation("Person");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Position", b =>
-                {
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.League", "League")
-                        .WithMany("Positions")
-                        .HasForeignKey("LeagueId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Position", b =>
+				{
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.League", "League")
+						.WithMany("Positions")
+						.HasForeignKey("LeagueId")
+						.OnDelete(DeleteBehavior.Cascade)
+						.IsRequired();
 
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Position", "Parent")
-                        .WithMany("Children")
-                        .HasForeignKey("ParentId")
-                        .OnDelete(DeleteBehavior.Restrict);
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Position", "Parent")
+						.WithMany("Children")
+						.HasForeignKey("ParentId")
+						.OnDelete(DeleteBehavior.Restrict);
 
-                    b.Navigation("League");
+					b.Navigation("League");
 
-                    b.Navigation("Parent");
-                });
+					b.Navigation("Parent");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.RoleType", b =>
-                {
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.League", "League")
-                        .WithMany("RoleTypes")
-                        .HasForeignKey("LeagueId");
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.RoleType", b =>
+				{
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.League", "League")
+						.WithMany("RoleTypes")
+						.HasForeignKey("LeagueId");
 
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Sport", "Sport")
-                        .WithMany("RoleTypes")
-                        .HasForeignKey("SportId");
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Sport", "Sport")
+						.WithMany("RoleTypes")
+						.HasForeignKey("SportId");
 
-                    b.Navigation("League");
+					b.Navigation("League");
 
-                    b.Navigation("Sport");
-                });
+					b.Navigation("Sport");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Roster", b =>
-                {
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Season", "Season")
-                        .WithMany("Rosters")
-                        .HasForeignKey("SeasonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Roster", b =>
+				{
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Season", "Season")
+						.WithMany("Rosters")
+						.HasForeignKey("SeasonId")
+						.OnDelete(DeleteBehavior.Cascade)
+						.IsRequired();
 
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Team", "Team")
-                        .WithMany("Rosters")
-                        .HasForeignKey("TeamId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Team", "Team")
+						.WithMany("Rosters")
+						.HasForeignKey("TeamId")
+						.OnDelete(DeleteBehavior.Cascade)
+						.IsRequired();
 
-                    b.Navigation("Season");
+					b.Navigation("Season");
 
-                    b.Navigation("Team");
-                });
+					b.Navigation("Team");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.RosterCoach", b =>
-                {
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Coach", "Coach")
-                        .WithMany("RosterCoaches")
-                        .HasForeignKey("CoachId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.RosterCoach", b =>
+				{
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Coach", "Coach")
+						.WithMany("RosterCoaches")
+						.HasForeignKey("CoachId")
+						.OnDelete(DeleteBehavior.Cascade)
+						.IsRequired();
 
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Roster", "Roster")
-                        .WithMany("Coaches")
-                        .HasForeignKey("RosterId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Roster", "Roster")
+						.WithMany("Coaches")
+						.HasForeignKey("RosterId")
+						.OnDelete(DeleteBehavior.Cascade)
+						.IsRequired();
 
-                    b.Navigation("Coach");
+					b.Navigation("Coach");
 
-                    b.Navigation("Roster");
-                });
+					b.Navigation("Roster");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.RosterCoachType", b =>
-                {
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.CoachType", "CoachType")
-                        .WithMany("RosterCoachTypes")
-                        .HasForeignKey("CoachTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.RosterCoachType", b =>
+				{
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.CoachType", "CoachType")
+						.WithMany("RosterCoachTypes")
+						.HasForeignKey("CoachTypeId")
+						.OnDelete(DeleteBehavior.Cascade)
+						.IsRequired();
 
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.RosterCoach", "RosterCoach")
-                        .WithMany("CoachTypes")
-                        .HasForeignKey("RosterCoachId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.RosterCoach", "RosterCoach")
+						.WithMany("CoachTypes")
+						.HasForeignKey("RosterCoachId")
+						.OnDelete(DeleteBehavior.Cascade)
+						.IsRequired();
 
-                    b.Navigation("CoachType");
+					b.Navigation("CoachType");
 
-                    b.Navigation("RosterCoach");
-                });
+					b.Navigation("RosterCoach");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.RosterPlayer", b =>
-                {
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Player", "Player")
-                        .WithMany("RosterPlayers")
-                        .HasForeignKey("PlayerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.RosterPlayer", b =>
+				{
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Player", "Player")
+						.WithMany("RosterPlayers")
+						.HasForeignKey("PlayerId")
+						.OnDelete(DeleteBehavior.Cascade)
+						.IsRequired();
 
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Roster", "Roster")
-                        .WithMany("Players")
-                        .HasForeignKey("RosterId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Roster", "Roster")
+						.WithMany("Players")
+						.HasForeignKey("RosterId")
+						.OnDelete(DeleteBehavior.Cascade)
+						.IsRequired();
 
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Status", "Status")
-                        .WithMany()
-                        .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.SetNull);
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Status", "Status")
+						.WithMany()
+						.HasForeignKey("StatusId")
+						.OnDelete(DeleteBehavior.SetNull);
 
-                    b.Navigation("Player");
+					b.Navigation("Player");
 
-                    b.Navigation("Roster");
+					b.Navigation("Roster");
 
-                    b.Navigation("Status");
-                });
+					b.Navigation("Status");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.RosterPlayerPosition", b =>
-                {
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Position", "Position")
-                        .WithMany("RosterPlayerPositions")
-                        .HasForeignKey("PositionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.RosterPlayerPosition", b =>
+				{
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Position", "Position")
+						.WithMany("RosterPlayerPositions")
+						.HasForeignKey("PositionId")
+						.OnDelete(DeleteBehavior.Cascade)
+						.IsRequired();
 
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.RosterPlayer", "RosterPlayer")
-                        .WithMany("Positions")
-                        .HasForeignKey("RosterPlayerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.RosterPlayer", "RosterPlayer")
+						.WithMany("Positions")
+						.HasForeignKey("RosterPlayerId")
+						.OnDelete(DeleteBehavior.Cascade)
+						.IsRequired();
 
-                    b.Navigation("Position");
+					b.Navigation("Position");
 
-                    b.Navigation("RosterPlayer");
-                });
+					b.Navigation("RosterPlayer");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Season", b =>
-                {
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.League", "League")
-                        .WithMany("Seasons")
-                        .HasForeignKey("LeagueId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Season", b =>
+				{
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.League", "League")
+						.WithMany("Seasons")
+						.HasForeignKey("LeagueId")
+						.OnDelete(DeleteBehavior.Cascade)
+						.IsRequired();
 
-                    b.Navigation("League");
-                });
+					b.Navigation("League");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Status", b =>
-                {
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.League", "League")
-                        .WithMany("Statuses")
-                        .HasForeignKey("LeagueId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Status", b =>
+				{
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.League", "League")
+						.WithMany("Statuses")
+						.HasForeignKey("LeagueId")
+						.OnDelete(DeleteBehavior.Cascade)
+						.IsRequired();
 
-                    b.Navigation("League");
-                });
+					b.Navigation("League");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Team", b =>
-                {
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.LeagueUnit", "LeagueUnit")
-                        .WithMany("Teams")
-                        .HasForeignKey("LeagueUnitId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Team", b =>
+				{
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.LeagueUnit", "LeagueUnit")
+						.WithMany("Teams")
+						.HasForeignKey("LeagueUnitId")
+						.OnDelete(DeleteBehavior.Cascade)
+						.IsRequired();
 
-                    b.Navigation("LeagueUnit");
-                });
+					b.Navigation("LeagueUnit");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.TeamHistory", b =>
-                {
-                    b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Team", "Team")
-                        .WithMany("History")
-                        .HasForeignKey("TeamId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.TeamHistory", b =>
+				{
+					b.HasOne("DynastyOfChampions.Foundation.Data.Persistence.Entities.Team", "Team")
+						.WithMany("History")
+						.HasForeignKey("TeamId")
+						.OnDelete(DeleteBehavior.Cascade)
+						.IsRequired();
 
-                    b.Navigation("Team");
-                });
+					b.Navigation("Team");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Coach", b =>
-                {
-                    b.Navigation("RosterCoaches");
-                });
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Coach", b =>
+				{
+					b.Navigation("RosterCoaches");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.CoachType", b =>
-                {
-                    b.Navigation("RosterCoachTypes");
-                });
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.CoachType", b =>
+				{
+					b.Navigation("RosterCoachTypes");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.League", b =>
-                {
-                    b.Navigation("CareerPhases");
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.League", b =>
+				{
+					b.Navigation("CareerPhases");
 
-                    b.Navigation("CoachTypes");
+					b.Navigation("CoachTypes");
 
-                    b.Navigation("Coaches");
+					b.Navigation("Coaches");
 
-                    b.Navigation("History");
+					b.Navigation("History");
 
-                    b.Navigation("LeagueUnits");
+					b.Navigation("LeagueUnits");
 
-                    b.Navigation("Players");
+					b.Navigation("Players");
 
-                    b.Navigation("Positions");
+					b.Navigation("Positions");
 
-                    b.Navigation("RoleTypes");
+					b.Navigation("RoleTypes");
 
-                    b.Navigation("Seasons");
+					b.Navigation("Seasons");
 
-                    b.Navigation("Statuses");
-                });
+					b.Navigation("Statuses");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.LeagueUnit", b =>
-                {
-                    b.Navigation("History");
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.LeagueUnit", b =>
+				{
+					b.Navigation("History");
 
-                    b.Navigation("Teams");
-                });
+					b.Navigation("Teams");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Person", b =>
-                {
-                    b.Navigation("CareerPhases");
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Person", b =>
+				{
+					b.Navigation("CareerPhases");
 
-                    b.Navigation("CoachRoles");
+					b.Navigation("CoachRoles");
 
-                    b.Navigation("History");
+					b.Navigation("History");
 
-                    b.Navigation("PlayerRoles");
-                });
+					b.Navigation("PlayerRoles");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.PersonHistory", b =>
-                {
-                    b.Navigation("Nicknames");
-                });
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.PersonHistory", b =>
+				{
+					b.Navigation("Nicknames");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Player", b =>
-                {
-                    b.Navigation("RosterPlayers");
-                });
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Player", b =>
+				{
+					b.Navigation("RosterPlayers");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Position", b =>
-                {
-                    b.Navigation("Children");
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Position", b =>
+				{
+					b.Navigation("Children");
 
-                    b.Navigation("RosterPlayerPositions");
-                });
+					b.Navigation("RosterPlayerPositions");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.RoleType", b =>
-                {
-                    b.Navigation("CareerPhases");
-                });
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.RoleType", b =>
+				{
+					b.Navigation("CareerPhases");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Roster", b =>
-                {
-                    b.Navigation("Coaches");
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Roster", b =>
+				{
+					b.Navigation("Coaches");
 
-                    b.Navigation("Players");
-                });
+					b.Navigation("Players");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.RosterCoach", b =>
-                {
-                    b.Navigation("CoachTypes");
-                });
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.RosterCoach", b =>
+				{
+					b.Navigation("CoachTypes");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.RosterPlayer", b =>
-                {
-                    b.Navigation("Positions");
-                });
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.RosterPlayer", b =>
+				{
+					b.Navigation("Positions");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Season", b =>
-                {
-                    b.Navigation("Rosters");
-                });
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Season", b =>
+				{
+					b.Navigation("Rosters");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Sport", b =>
-                {
-                    b.Navigation("CareerPhases");
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Sport", b =>
+				{
+					b.Navigation("CareerPhases");
 
-                    b.Navigation("Leagues");
+					b.Navigation("Leagues");
 
-                    b.Navigation("RoleTypes");
-                });
+					b.Navigation("RoleTypes");
+				});
 
-            modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Team", b =>
-                {
-                    b.Navigation("History");
+			modelBuilder.Entity("DynastyOfChampions.Foundation.Data.Persistence.Entities.Team", b =>
+				{
+					b.Navigation("History");
 
-                    b.Navigation("Rosters");
-                });
+					b.Navigation("Rosters");
+				});
 #pragma warning restore 612, 618
-        }
-    }
+		}
+	}
 }

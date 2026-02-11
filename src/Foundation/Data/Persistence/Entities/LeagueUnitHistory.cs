@@ -31,11 +31,6 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Entities
 		public int Level { get; set; }
 
 		/// <summary>
-		/// The identifier of the parent unit during this period, if applicable.
-		/// </summary>
-		public Guid? ParentId { get; set; }
-
-		/// <summary>
 		/// The date on which this historical record became effective.
 		/// </summary>
 		public DateTime StartDate { get; set; }
@@ -54,6 +49,11 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Entities
 		/// </summary>
 		public Guid LeagueUnitId { get; set; }
 
+		/// <summary>
+		/// The identifier of the parent unit during this period, if applicable.
+		/// </summary>
+		public Guid? ParentId { get; set; }
+
 		#endregion
 
 		#region Navigation Properties
@@ -62,6 +62,11 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Entities
 		/// The league unit associated with this historical record.
 		/// </summary>
 		public LeagueUnit LeagueUnit { get; set; } = null!;
+
+		/// <summary>
+		/// The league unit associated with this historical record.
+		/// </summary>
+		public LeagueUnit? Parent { get; set; }
 
 		#endregion
 	}
