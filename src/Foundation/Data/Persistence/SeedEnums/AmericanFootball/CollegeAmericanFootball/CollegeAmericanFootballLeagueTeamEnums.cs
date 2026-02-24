@@ -1,7 +1,7 @@
 namespace DynastyOfChampions.Foundation.Data.Persistence.SeedEnums.AmericanFootball.CollegeAmericanFootball
 {
 	/// <summary>
-	/// Enum Ids for the different historical changes to the College American Football league.
+	/// Enum Ids for the teams within the College American Football league.
 	/// </summary>
 	/// <remarks>
 	/// Guid rules are as follows:
@@ -9,24 +9,24 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.SeedEnums.AmericanFootb
 	/// - The next two bytes represent the sport, in this case, American Football (01).
 	/// - The next two bytes represent the league, in this case, College American Football (01).
 	/// - The next two bytes represent whether the record is a league history (01), a league unit (02), or a team (03).
-	/// - The remaining bytes are used for versioning and other purposes pertaining to the particular league we identify here.
+	/// - For Teams, the next four bytes represent the team itself, such as Princeton (0001).
+	/// - The remaining bytes are used for versioning and other purposes pertaining to the particular league unit we identify here.
 	/// </remarks>
-	public enum CollegeAmericanFootballLeagueHistoryEnums : ulong
+	public enum CollegeAmericanFootballLeagueTeamEnums : ulong
 	{
-		PreRegulation = 0x0101010100000000,
-		IntercollegiateAthleticAssociationOfTheUnitedStates = 0x0101010100000001,
-		NationalCollegeAthleticAssociation = 0x0101010100000002
+		Princeton = 0x0101010300010000,
+		Rutgers = 0x0101010300020000
 	}
 
 	/// <summary>
-	/// Extension methods for the CollegeAmericanFootballLeagueHistoryEnums.
+	/// Extension methods for the CollegeAmericanFootballLeagueTeamEnums.
 	/// </summary>
-	public static class CollegeAmericanFootballLeagueHistoryEnumExtensions
+	public static class CollegeAmericanFootballLeagueTeamEnumExtensions
 	{
 		/// <summary>
-		/// Converts the CollegeAmericanFootballLeagueHistoryEnums value to a Guid.
+		/// Converts the CollegeAmericanFootballLeagueTeamEnums value to a Guid.
 		/// </summary>
-		public static Guid ToGuid(this CollegeAmericanFootballLeagueHistoryEnums value)
+		public static Guid ToGuid(this CollegeAmericanFootballLeagueTeamEnums value)
 		{
 			var bytes = new byte[16];
 			BitConverter.GetBytes((ulong)value).CopyTo(bytes, 0);

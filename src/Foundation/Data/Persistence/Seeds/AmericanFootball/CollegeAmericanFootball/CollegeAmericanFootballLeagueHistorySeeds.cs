@@ -21,6 +21,24 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Seeds.AmericanFootball.
 				new DateTime(1869, 11, 6),
 				new DateTime(1905, 1, 1));
 
+			SeedLeagueHistory(db,
+				CollegeAmericanFootballLeagueHistoryEnums.IntercollegiateAthleticAssociationOfTheUnitedStates,
+				AmericanFootballLeagueEnums.CollegeAmericanFootball,
+				"Intercollegiate Athletic Association of the United States",
+				"IAAUS",
+				"The first governing body for college football in the United States.",
+				new DateTime(1905, 1, 1),
+				new DateTime(1910, 1, 1));
+
+			SeedLeagueHistory(db,
+				CollegeAmericanFootballLeagueHistoryEnums.NationalCollegeAthleticAssociation,
+				AmericanFootballLeagueEnums.CollegeAmericanFootball,
+				"National College Athletic Association",
+				"NCAA",
+				"The main governing body for college athletics in the United States.",
+				new DateTime(1910, 1, 1),
+				null);
+
 			db.SaveChanges();
 		}
 
