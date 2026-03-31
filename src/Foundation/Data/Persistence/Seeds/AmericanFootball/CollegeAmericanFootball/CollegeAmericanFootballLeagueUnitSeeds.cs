@@ -2,6 +2,7 @@ using DynastyOfChampions.Foundation.Data.Persistence.Context;
 using DynastyOfChampions.Foundation.Data.Persistence.Entities;
 using DynastyOfChampions.Foundation.Data.Persistence.SeedEnums;
 using DynastyOfChampions.Foundation.Data.Persistence.SeedEnums.AmericanFootball;
+using DynastyOfChampions.Foundation.Data.Persistence.SeedEnums.AmericanFootball.CollegeAmericanFootball;
 
 namespace DynastyOfChampions.Foundation.Data.Persistence.Seeds.AmericanFootball.CollegeAmericanFootball
 {

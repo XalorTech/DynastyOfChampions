@@ -1,5 +1,3 @@
-using System;
-
 namespace DynastyOfChampions.Foundation.Data.Persistence.Entities
 {
 	/// <summary>
@@ -25,10 +23,15 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Entities
 		/// </summary>
 		public string Abbreviation { get; set; } = null!;
 
-		/// <summary>
-		/// The city associated with the team during this period.
-		/// </summary>
-		public string? City { get; set; }
+        /// <summary>
+        /// The name of the controlling organization (e.g., "Princeton University") associated with the team during this period, if applicable.
+        /// </summary>
+        public string? Organization { get; set; }
+
+        /// <summary>
+        /// The city associated with the team during this period.
+        /// </summary>
+        public string? City { get; set; }
 
 		/// <summary>
 		/// The region, state, or province associated with the team during this period.
@@ -39,16 +42,6 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Entities
 		/// The country associated with the team during this period.
 		/// </summary>
 		public string? Country { get; set; }
-
-		/// <summary>
-		/// A display-friendly location string (e.g., "Dallas", "Manchester").
-		/// </summary>
-		public string? DisplayLocation { get; set; }
-
-		/// <summary>
-		/// A short location code used for scoreboards or abbreviations (e.g., "DAL", "MUN").
-		/// </summary>
-		public string? ShortLocation { get; set; }
 
 		/// <summary>
 		/// The date on which this historical record became effective.
@@ -69,15 +62,35 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Entities
 		/// </summary>
 		public Guid TeamId { get; set; }
 
-		#endregion
-
-		#region Navigation Properties
-
+        /// <summary>
+        /// The identifier of the league to which this team belongs.
+        /// </summary>
+        public Guid LeagueId { get; set; }
+        
 		/// <summary>
-		/// Navigation to the team associated with this historical record.
-		/// </summary>
-		public Team Team { get; set; } = null!;
+        /// The identifier of the league unit to which this team belongs.
+        /// </summary>
+        public Guid LeagueUnitId { get; set; }
 
-		#endregion
-	}
+        #endregion
+
+        #region Navigation Properties
+
+        /// <summary>
+        /// Navigation to the team associated with this historical record.
+        /// </summary>
+        public Team Team { get; set; } = null!;
+
+        /// <summary>
+        /// Navigation to the league associated with this team during this historical period.
+        /// </summary>
+        public League League { get; set; } = null!;
+
+        /// <summary>
+        /// Navigation to the league unit associated with this team during this historical period.
+        /// </summary>
+        public LeagueUnit LeagueUnit { get; set; } = null!;
+
+        #endregion
+    }
 }
