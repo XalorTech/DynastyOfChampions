@@ -38,9 +38,9 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Configurations
 				.HasForeignKey(h => h.LeagueUnitId)
 				.OnDelete(DeleteBehavior.Cascade);
 
-			// LeagueUnit -> Team
-			entity.HasMany(e => e.Teams)
-				.WithOne(t => t.LeagueUnit)
+			// LeagueUnit -> TeamHistory
+			entity.HasMany(e => e.TeamHistories)
+				.WithOne(th => th.LeagueUnit)
 				.HasForeignKey(t => t.LeagueUnitId);
 
 			#endregion

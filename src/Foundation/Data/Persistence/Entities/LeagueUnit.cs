@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 namespace DynastyOfChampions.Foundation.Data.Persistence.Entities
 {
 	/// <summary>
@@ -38,7 +35,7 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Entities
 		/// <summary>
 		/// The collection of teams associated with this unit.
 		/// </summary>
-		public ICollection<Team> Teams { get; set; } = new List<Team>();
+		public ICollection<TeamHistory> TeamHistories { get; set; } = new List<TeamHistory>();
 
 		/// <summary>
 		/// Historical records describing time-variant attributes and hierarchy changes.

@@ -17,20 +17,7 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Configurations
 
 			#endregion
 
-			#region ForeignKeys
-
-			// Team -> LeagueUnit
-			entity.Property(e => e.LeagueUnitId)
-				.IsRequired();
-
-			#endregion
-
 			#region Relationships
-
-			// Team -> LeagueUnit
-			entity.HasOne(e => e.LeagueUnit)
-				.WithMany(u => u.Teams)
-				.HasForeignKey(e => e.LeagueUnitId);
 
 			// Team -> TeamHistory
 			entity.HasMany(e => e.History)

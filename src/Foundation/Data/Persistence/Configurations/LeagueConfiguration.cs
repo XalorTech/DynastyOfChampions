@@ -43,6 +43,11 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Configurations
 				.WithOne(u => u.League)
 				.HasForeignKey(u => u.LeagueId);
 
+			// League -> TeamHistory
+			entity.HasMany(e => e.TeamHistories)
+				.WithOne(th => th.League)
+				.HasForeignKey(th => th.LeagueId);
+
 			// League -> Season
 			entity.HasMany(e => e.Seasons)
 				.WithOne(s => s.League)

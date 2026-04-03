@@ -23,15 +23,15 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Entities
 		/// </summary>
 		public string Abbreviation { get; set; } = null!;
 
-        /// <summary>
-        /// The name of the controlling organization (e.g., "Princeton University") associated with the team during this period, if applicable.
-        /// </summary>
-        public string? Organization { get; set; }
+		/// <summary>
+		/// The name of the controlling organization (e.g., "Princeton University") associated with the team during this period, if applicable.
+		/// </summary>
+		public string? Organization { get; set; }
 
-        /// <summary>
-        /// The city associated with the team during this period.
-        /// </summary>
-        public string? City { get; set; }
+		/// <summary>
+		/// The city associated with the team during this period.
+		/// </summary>
+		public string? City { get; set; }
 
 		/// <summary>
 		/// The region, state, or province associated with the team during this period.
@@ -62,35 +62,35 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Entities
 		/// </summary>
 		public Guid TeamId { get; set; }
 
-        /// <summary>
-        /// The identifier of the league to which this team belongs.
-        /// </summary>
-        public Guid LeagueId { get; set; }
-        
 		/// <summary>
-        /// The identifier of the league unit to which this team belongs.
-        /// </summary>
-        public Guid LeagueUnitId { get; set; }
+		/// The identifier of the league to which this team belongs.
+		/// </summary>
+		public Guid LeagueId { get; set; }
 
-        #endregion
+		/// <summary>
+		/// The identifier of the league unit to which this team belongs.
+		/// </summary>
+		public Guid LeagueUnitId { get; set; }
 
-        #region Navigation Properties
+		#endregion
 
-        /// <summary>
-        /// Navigation to the team associated with this historical record.
-        /// </summary>
-        public Team Team { get; set; } = null!;
+		#region Navigation Properties
 
-        /// <summary>
-        /// Navigation to the league associated with this team during this historical period.
-        /// </summary>
-        public League League { get; set; } = null!;
+		/// <summary>
+		/// Navigation to the team associated with this historical record.
+		/// </summary>
+		public Team Team { get; set; } = null!;
 
-        /// <summary>
-        /// Navigation to the league unit associated with this team during this historical period.
-        /// </summary>
-        public LeagueUnit LeagueUnit { get; set; } = null!;
+		/// <summary>
+		/// Navigation to the league associated with this team during this historical period.
+		/// </summary>
+		public League League { get; set; } = null!;
 
-        #endregion
-    }
+		/// <summary>
+		/// Navigation to the league unit associated with this team during this historical period.
+		/// </summary>
+		public LeagueUnit LeagueUnit { get; set; } = null!;
+
+		#endregion
+	}
 }

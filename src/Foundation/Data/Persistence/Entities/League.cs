@@ -46,6 +46,11 @@ namespace DynastyOfChampions.Foundation.Data.Persistence.Entities
 		public ICollection<LeagueUnit> LeagueUnits { get; set; } = new List<LeagueUnit>();
 
 		/// <summary>
+		/// The historical records describing the teams that have participated in this league over time.
+		/// </summary>
+		public ICollection<TeamHistory> TeamHistories { get; set; } = new List<TeamHistory>();
+		
+		/// <summary>
 		/// The seasons associated with this league.
 		/// </summary>
 		public ICollection<Season> Seasons { get; set; } = new List<Season>();
